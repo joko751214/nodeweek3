@@ -12,7 +12,8 @@ router.get("/posts", async (req, res) => {
 router.post("/posts", async (req, res) => {
   console.log(req);
   try {
-    const data = await Post.create(req.body);
+    const body = req.body;
+    const data = await Post.create(body);
     statusHandle(res, 200, data);
   } catch (err) {
     console.log(err, "error");
